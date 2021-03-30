@@ -2,13 +2,37 @@ import axios from "axios";
 import authHeader from "./auth-header";
 
 const API_URL = "http://localhost:8080/api/test/";
+/*
+const postTask = (taskname, description, fiatvalue, tags) => {
+  return axios.post(API_URL + "posttask", { headers: authHeader()}, {
+    taskname,
+    description,
+    fiatvalue,
+    tags
+  });
+};
+*/
+const postTask = (taskname, description, fiatvalue, tags) => {
+  return axios.post(API_URL + "posttask",
+    {
+      headers: authHeader(),
+      taskname,
+      description,
+      fiatvalue,
+      tags
+    }
+  );
+};
 
 const getPublicContent = () => {
   return axios.get(API_URL + "all");
 };
 
 const getUserBoard = () => {
-  return axios.get(API_URL + "user", { headers: authHeader() });
+  const apiResponse = axios.get(API_URL + "user", { headers: authHeader() })
+  //  console.log("user.services.js",apiResponse.data);
+
+  return apiResponse;
 };
 
 const getModeratorBoard = () => {
@@ -20,6 +44,7 @@ const getAdminBoard = () => {
 };
 
 export default {
+  postTask,
   getPublicContent,
   getUserBoard,
   getModeratorBoard,

@@ -1,0 +1,46 @@
+.centerblock{ 
+    background-color: red; 
+    padding-top: 100px; 
+} 
+ 
+.square{ 
+    Background-color: rgb(163, 182, 245); 
+    text-align: center;
+    border: 1px solid black;
+    display: inline-block;
+    margin: 4px;
+    border-radius: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+} 
+.square:focus{
+    background-color: white; 
+}
+.button{
+    background-color: lightskyblue;
+    border: none;
+    color: white;
+    padding-left: 7px;
+    padding-right: 7px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 8px;
+}
+.buttondisabled{
+    background-color: rgb(195, 195, 236);
+    border: none;
+    color: black;
+    padding-left: 7px;
+    padding-right: 7px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 8px;
+}

@@ -10,6 +10,7 @@ import Register from "./components/Register";
 import Home from "./components/Home";
 import Profile from "./components/Profile";
 import BoardUser from "./components/BoardUser";
+import AddTask from "./components/AddTask";
 import BoardModerator from "./components/BoardModerator";
 import BoardAdmin from "./components/BoardAdmin";
 
@@ -17,12 +18,14 @@ const App = () => {
   const [showModeratorBoard, setShowModeratorBoard] = useState(false);
   const [showAdminBoard, setShowAdminBoard] = useState(false);
   const [currentUser, setCurrentUser] = useState(undefined);
+  const [addTask, setAddTask] = useState(undefined);
 
   useEffect(() => {
     const user = AuthService.getCurrentUser();
 
     if (user) {
       setCurrentUser(user);
+      setAddTask(user);
       setShowModeratorBoard(user.roles.includes("ROLE_MODERATOR"));
       setShowAdminBoard(user.roles.includes("ROLE_ADMIN"));
     }
@@ -36,7 +39,7 @@ const App = () => {
     <div>
       <nav className="navbar navbar-expand navbar-dark bg-dark">
         <Link to={"/"} className="navbar-brand">
-          bezKoder
+          theTasker
         </Link>
         <div className="navbar-nav mr-auto">
           <li className="nav-item">
@@ -65,6 +68,14 @@ const App = () => {
             <li className="nav-item">
               <Link to={"/user"} className="nav-link">
                 User
+              </Link>
+            </li>
+          )}
+
+          {addTask && (
+            <li className="nav-item">
+              <Link to={"/addtask"} className="nav-link">
+                Add Task
               </Link>
             </li>
           )}
@@ -107,6 +118,7 @@ const App = () => {
           <Route exact path="/register" component={Register} />
           <Route exact path="/profile" component={Profile} />
           <Route path="/user" component={BoardUser} />
+          <Route path="/addtask" component={AddTask} />
           <Route path="/mod" component={BoardModerator} />
           <Route path="/admin" component={BoardAdmin} />
         </Switch>
