@@ -44,3 +44,20 @@
     cursor: pointer;
     border-radius: 8px;
 }
+.nobutton {
+  cursor: default;
+}
+
+.tags {
+  margin-bottom: 1rem;
+}
+
+.tasks {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.tasks li {
+  margin-bottom: 1rem;
+}
